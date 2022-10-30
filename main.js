@@ -63,6 +63,9 @@ rule = (particles1, particles2, g) => { // - -> atraction, + -> repulsion
 yellow = create(200, "yellow")
 red = create(200, "red")
 green = create(200, "green")
+// ------
+purple = create(500, "purple")
+cyan = create(100, "cyan")
 
 update = () => { 
     rule(green, green, -0.32)
@@ -72,6 +75,14 @@ update = () => {
     rule(red, green, -0.34)
     rule(yellow, yellow, 0.15)
     rule(yellow, green, -0.2)
+    // ----
+    rule(yellow, purple, 0.1)
+    rule(purple, yellow, -0.1)
+    rule(purple, green, 1)
+    rule(cyan, purple, 1)
+    rule(yellow, cyan, -1)
+    // -----
+    
     m.clearRect(0, 0, 500, 500);
     draw(0, 0, "black", 500)
     for(let i = 0; i < particles.length; ++i) {
